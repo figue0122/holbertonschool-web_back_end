@@ -1,5 +1,5 @@
 // 8-hbtn_class.js
-export class HolbertonClass {
+export default class HolbertonClass {
   constructor(size, location) {
     this._size = size;
     this._location = location;
@@ -31,5 +31,3 @@ export class HolbertonClass {
     return null;
   }
 }
-
-  
