@@ -1,13 +1,17 @@
+// 10-update_uniq_items.js
+
 function updateUniqueItems(map) {
-    if (!(map instanceof Map)) {
-      throw new Error('Cannot process');
-    }
-  
-    for (const [key] of map) {
-      if (map.get(key) === 1) map.set(key, 100);
-    }
-  
-    return map;
+  if (!(map instanceof Map)) {
+    throw new Error('Cannot process');
   }
-  
-  export default updateUniqueItems;
+
+  for (const [key, value] of map) {
+    if (value === 1) {
+      map.set(key, 100);
+    }
+  }
+
+  return map;
+}
+
+export default updateUniqueItems;
