@@ -1,6 +1,8 @@
-#!/usr/bin/node
 export default function getResponseFromAPI() {
-    return new Promise((resolve) => {
-      resolve();
+  // eslint-disable-next-line
+      return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('true');
+      });
     });
   }
