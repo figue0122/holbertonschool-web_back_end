@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
-"""Measures the runtime of an async comprehension"""
+"""coroutine that will execute four times in
+parallel
+should measure the total runtime
+and return it"""
 import asyncio
-import typing
+import time
+from importlib import import_module
 
-wait_random = __import__('2-measure_runtime').wait_random
+module_name = '1-async_comprehension'
+module = import_module(module_name)
+async_comprehension = module.async_comprehension
 
-async def measure_time(n: int, max_delay: int) -> float:
-    """Measures the runtime of an async comprehension"""
-    start = asyncio.get_event_loop().time()
-    await asyncio.gather(*(wait_random(max_delay) for i in range(n)))
-    end = asyncio.get_event_loop().time()
-    return (end - start) / n
+
+async def measure_runtime() -> float:
+    """coroutine that will execute four times in
+    parallel
+    should measure the total runtime
+    and return it"""
+    start = time.time()
+    await asyncio.gather(*(async_comprehension() for _ in range(4)))
+    end = time.time()
+    return end - start
